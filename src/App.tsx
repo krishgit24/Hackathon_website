@@ -5,7 +5,7 @@ import { About } from './components/About';
 import { Timeline } from './components/Timeline';
 import { Sponsors } from './components/Sponsors';
 import { Registration } from './components/Registration';
-import { Footer } from './components/Footer';
+import Footer  from './components/Footer';
 
 export default function App() {
   return (
