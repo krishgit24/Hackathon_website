@@ -1,8 +1,18 @@
-import React from 'react';
-import { Twitter, Linkedin, Instagram, Github, ArrowRight, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { Linkedin, Instagram, ArrowRight, Sparkles } from 'lucide-react';
 import ieeelogo from '../Assets/logo.png';
 
 export function Hero() {
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+  const navItems = [
+    { id: "about", label: "About" },
+    { id: "workshops", label: "Workshops" },
+    { id: "timeline", label: "Timeline" },
+    { id: "sponsors", label: "Sponsors" },
+    { id: "register", label: "Register" },
+  ];
+
   return (
     <section className="relative min-h-screen overflow-hidden">
       {/* Animated Background */}
@@ -21,31 +31,56 @@ export function Hero() {
       <div className="absolute bottom-[25%] right-[35%] w-1.5 h-1.5 bg-cyan-300 rounded-full animate-pulse delay-300" />
 
       <div className="relative z-10 min-h-screen flex flex-col">
-        {/* Navigation */}
-        <nav className="flex items-center justify-between px-8 lg:px-20 py-8">
-          <div className="flex items-center space-x-3">
+        {/* Top Navigation with Navbar in Center */}
+        <nav className="relative flex items-center justify-between px-8 lg:px-20 py-8">
+          {/* Left: Logo */}
+          <div className="flex items-center space-x-3 flex-shrink-0 z-10">
             <img 
               src={ieeelogo} 
               alt="IEEE Logo" 
               className="w-12 h-12 object-contain" 
             />
             <div>
-              <div className="text-white text-2xl">IEEE</div>
-              <div className="text-gray-400 text-xl">VESIT</div>
+              <div className="text-white text-2xl">IEEE-VESIT</div>
+              <div className="text-gray-400 text-xl"></div>
             </div>
           </div>
-          <div className="flex items-center space-x-4">
-            <a href="#" className="w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
-              <Twitter className="text-gray-400 hover:text-cyan-400 transition-colors" size={18} />
-            </a>
+
+          {/* Center: Navigation Menu with Animated Underlines */}
+          <div className="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 z-20">
+            <div className="flex items-center gap-6 lg:gap-10 xl:gap-12">
+              {navItems.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="relative text-white text-base lg:text-lg font-semibold uppercase tracking-wider pb-4 px-3 cursor-pointer transition-transform duration-300 hover:-translate-y-0.5"
+                  onMouseEnter={() => setHoveredItem(item.id)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  <span 
+                    className="absolute bottom-0 left-0 bg-white rounded-full origin-left"
+                    style={{ 
+                      width: '100%',
+                      height: '1px',
+                      transform: hoveredItem === item.id ? 'scaleX(1)' : 'scaleX(0)',
+                      transition: 'transform 0.3s ease-out',
+                      zIndex: 20
+                    }}
+                  ></span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+
+          {/* Right: Social Media Icons */}
+          <div className="flex items-center space-x-4 flex-shrink-0 z-10">
             <a href="#" className="w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
               <Linkedin className="text-gray-400 hover:text-cyan-400 transition-colors" size={18} />
             </a>
             <a href="#" className="w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
               <Instagram className="text-gray-400 hover:text-cyan-400 transition-colors" size={18} />
-            </a>
-            <a href="#" className="w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
-              <Github className="text-gray-400 hover:text-cyan-400 transition-colors" size={18} />
             </a>
           </div>
         </nav>
@@ -66,18 +101,18 @@ export function Hero() {
                 2025
               </h2>
               <p className="text-2xl lg:text-3xl text-gray-400 max-w-3xl mb-12">
-                36 hours of innovation • $10K+ prizes • 200+ participants
+                24 hours of innovation • ₹10K+ prizes 
               </p>
             </div>
 
             {/* Workshop Circles */}
-            <div className="mb-16">
-              <h3 className="text-xl text-gray-400 mb-3 tracking-wider">PRE-HACKATHON</h3>
-              <h2 className="text-4xl lg:text-5xl text-white mb-12">Workshop Series</h2>
+            {/* <div className="mb-16"> */}
+              {/* <h3 className="text-xl text-gray-400 mb-3 tracking-wider">PRE-HACKATHON</h3> */}
+              {/* <h2 className="text-4xl lg:text-5xl text-white mb-12">Workshop Series</h2> */}
               
-              <div className="flex flex-wrap gap-8">
+              {/* <div className="flex flex-wrap gap-8"> */}
                 {/* Workshop 1 */}
-                <div className="group relative">
+                {/* <div className="group relative">
                   <div className="w-48 h-48 rounded-full border-4 border-purple-500 bg-gradient-to-br from-purple-900/40 to-transparent backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300">
                     <svg className="w-16 h-16 mb-3" viewBox="0 0 24 24" fill="none">
                       <rect x="4" y="4" width="16" height="16" rx="2" stroke="white" strokeWidth="2"/>
@@ -89,10 +124,10 @@ export function Hero() {
                     </div>
                   </div>
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs">1</div>
-                </div>
+                </div> */}
 
                 {/* Workshop 2 */}
-                <div className="group relative">
+                {/* <div className="group relative">
                   <div className="w-48 h-48 rounded-full border-4 border-cyan-500 bg-gradient-to-br from-cyan-900/40 to-transparent backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300">
                     <svg className="w-16 h-16 mb-3" viewBox="0 0 24 24" fill="none">
                       <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -105,10 +140,10 @@ export function Hero() {
                     </div>
                   </div>
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center text-white text-xs">2</div>
-                </div>
+                </div> */}
 
                 {/* Workshop 3 */}
-                <div className="group relative">
+                {/* <div className="group relative">
                   <div className="w-48 h-48 rounded-full border-4 border-pink-500 bg-gradient-to-br from-pink-900/40 to-transparent backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300">
                     <svg className="w-16 h-16 mb-3" viewBox="0 0 24 24" fill="none">
                       <circle cx="12" cy="12" r="3" stroke="white" strokeWidth="2"/>
@@ -120,10 +155,10 @@ export function Hero() {
                     </div>
                   </div>
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center text-white text-xs">3</div>
-                </div>
+                </div> */}
 
                 {/* Workshop 4 */}
-                <div className="group relative">
+                {/* <div className="group relative">
                   <div className="w-48 h-48 rounded-full border-4 border-emerald-500 bg-gradient-to-br from-emerald-900/40 to-transparent backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300">
                     <svg className="w-16 h-16 mb-3" viewBox="0 0 24 24" fill="none">
                       <rect x="3" y="3" width="18" height="18" rx="2" stroke="white" strokeWidth="2"/>
@@ -136,8 +171,8 @@ export function Hero() {
                   </div>
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center text-white text-xs">4</div>
                 </div>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
 
             {/* CTA */}
             <div className="flex flex-wrap gap-6">

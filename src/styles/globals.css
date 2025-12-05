@@ -187,3 +187,34 @@
 html {
   font-size: var(--font-size);
 }
+
+/* Navbar Animation Styles - Using CSS that definitely works */
+.nav-link-item {
+  position: relative;
+  overflow: visible !important;
+}
+
+.nav-link-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Target the underline span directly - this WILL work */
+.nav-link-item:hover .nav-underline {
+  width: 100% !important;
+}
+
+/* Also support group-hover from Tailwind */
+.group:hover .nav-underline {
+  width: 100% !important;
+}
+
+/* Ensure the underline has proper styling and transition */
+.nav-link-item .nav-underline {
+  transition: width 0.7s ease-out !important;
+  -webkit-transition: width 0.7s ease-out !important;
+  will-change: width;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  box-sizing: border-box !important;
+}
