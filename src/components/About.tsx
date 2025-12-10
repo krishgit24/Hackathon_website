@@ -5,13 +5,13 @@ export function About() {
   const stats = [
     {
       icon: Trophy,
-      value: '$10K+',
+      value: '₹10K+',
       label: 'Prize Pool',
       gradient: 'from-yellow-400 to-orange-500',
     },
     {
       icon: Zap,
-      value: '36 Hours',
+      value: '24 Hours',
       label: 'Non-Stop',
       gradient: 'from-cyan-400 to-blue-500',
     },
@@ -81,7 +81,7 @@ export function About() {
 
           <ul className="mt-12 space-y-4 text-left">
             {[
-              '36 hours of intensive coding with expert mentorship',
+              '24 hours of intensive coding with expert mentorship',
               'Access to cutting-edge tools and technologies',
               'Win cash prizes, internships and tech swag',
             ].map((item, index) => (
@@ -103,7 +103,7 @@ export function About() {
           <div className="relative text-center">
             <h3 className="text-4xl lg:text-5xl text-white mb-4">Exciting Prize Pool</h3>
             <div className="text-6xl lg:text-7xl bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-6">
-              $10,000+
+              ₹10,000+
             </div>
             <p className="text-lg text-gray-300 mb-8">
               Cash prizes, internship opportunities, tech gadgets, and exclusive swag
@@ -111,17 +111,17 @@ export function About() {
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
                 <div className="text-3xl text-yellow-400 mb-2">🥇</div>
-                <div className="text-2xl text-white mb-1">$5,000</div>
+                <div className="text-2xl text-white mb-1">₹7,000</div>
                 <div className="text-gray-400">First Prize</div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
                 <div className="text-3xl text-gray-300 mb-2">🥈</div>
-                <div className="text-2xl text-white mb-1">$3,000</div>
+                <div className="text-2xl text-white mb-1">₹3,000</div>
                 <div className="text-gray-400">Second Prize</div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
                 <div className="text-3xl text-orange-400 mb-2">🥉</div>
-                <div className="text-2xl text-white mb-1">$2,000</div>
+                <div className="text-2xl text-white mb-1">Hoodie</div>
                 <div className="text-gray-400">Third Prize</div>
               </div>
             </div>

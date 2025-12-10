@@ -4,64 +4,64 @@ import { Calendar, Clock, MapPin, Users, ChevronRight } from 'lucide-react';
 export function Workshops() {
   const workshops = [
     {
-      number: '01',
-      title: 'Coding Essentials',
-      date: 'March 1, 2025',
-      time: '2:00 PM - 5:00 PM',
-      location: 'Lab A-201',
-      instructor: 'Dr. Sarah Johnson',
-      description: 'Master programming fundamentals, data structures, algorithms, and problem-solving techniques essential for hackathons.',
-      color: 'purple',
-      gradient: 'from-purple-500 to-purple-700',
-      borderColor: 'border-purple-500',
-      bgGradient: 'from-purple-500/10 to-transparent',
+      number: "01",
+      title: "Frontend",
+      date: "March 1, 2025",
+      time: "2:00 PM - 5:00 PM",
+      location: "Google Meet(Online)",
+      description:
+        "Dive into modern frontend development with hands-on training in React, component-driven architecture, responsive design, and performance optimization. Build visually stunning and high-quality interfaces ready for real-world projects and hackathons.",
+      color: "purple",
+      gradient: "from-purple-500 to-purple-700",
+      borderColor: "border-purple-500",
+      bgGradient: "from-purple-500/10 to-transparent",
     },
     {
-      number: '02',
-      title: 'Design Thinking',
-      date: 'March 5, 2025',
-      time: '3:00 PM - 6:00 PM',
-      location: 'Design Studio',
-      instructor: 'Alex Thompson',
-      description: 'Learn user-centric design principles, rapid prototyping, wireframing, and creating intuitive user experiences.',
-      color: 'cyan',
-      gradient: 'from-cyan-500 to-cyan-700',
-      borderColor: 'border-cyan-500',
-      bgGradient: 'from-cyan-500/10 to-transparent',
+      number: "02",
+      title: "Backend",
+      date: "March 5, 2025",
+      time: "3:00 PM - 6:00 PM",
+      location: "Google Meet(Online)",
+      description:
+        "Learn the foundations of scalable backend architecture, APIs, authentication, and database management using Node.js and Express. Build secure, high-performance server systems that power real applications end-to-end.",
+      color: "cyan",
+      gradient: "from-cyan-500 to-cyan-700",
+      borderColor: "border-cyan-500",
+      bgGradient: "from-cyan-500/10 to-transparent",
     },
-    {
-      number: '03',
-      title: 'IoT & AI Basics',
-      date: 'March 8, 2025',
-      time: '1:00 PM - 4:00 PM',
-      location: 'Tech Lab B-105',
-      instructor: 'Dr. Emily Rodriguez',
-      description: 'Explore IoT devices, sensors, machine learning concepts, and AI integration in modern applications.',
-      color: 'pink',
-      gradient: 'from-pink-500 to-pink-700',
-      borderColor: 'border-pink-500',
-      bgGradient: 'from-pink-500/10 to-transparent',
-    },
-    {
-      number: '04',
-      title: 'Web Development Mastery',
-      date: 'March 12, 2025',
-      time: '4:00 PM - 7:00 PM',
-      location: 'Computer Lab C-301',
-      instructor: 'Prof. Michael Chen',
-      description: 'Build modern web apps with React, APIs, databases, and deploy full-stack applications to the cloud.',
-      color: 'emerald',
-      gradient: 'from-emerald-500 to-emerald-700',
-      borderColor: 'border-emerald-500',
-      bgGradient: 'from-emerald-500/10 to-transparent',
-    },
+    // {
+    //   number: '03',
+    //   title: 'IoT & AI Basics',
+    //   date: 'March 8, 2025',
+    //   time: '1:00 PM - 4:00 PM',
+    //   location: 'Tech Lab B-105',
+    //   instructor: 'Dr. Emily Rodriguez',
+    //   description: 'Explore IoT devices, sensors, machine learning concepts, and AI integration in modern applications.',
+    //   color: 'pink',
+    //   gradient: 'from-pink-500 to-pink-700',
+    //   borderColor: 'border-pink-500',
+    //   bgGradient: 'from-pink-500/10 to-transparent',
+    // },
+    // {
+    //   number: '04',
+    //   title: 'Web Development Mastery',
+    //   date: 'March 12, 2025',
+    //   time: '4:00 PM - 7:00 PM',
+    //   location: 'Computer Lab C-301',
+    //   instructor: 'Prof. Michael Chen',
+    //   description: 'Build modern web apps with React, APIs, databases, and deploy full-stack applications to the cloud.',
+    //   color: 'emerald',
+    //   gradient: 'from-emerald-500 to-emerald-700',
+    //   borderColor: 'border-emerald-500',
+    //   bgGradient: 'from-emerald-500/10 to-transparent',
+    // },
   ];
 
   return (
     <section id="workshops" className="relative py-32 px-8 lg:px-20">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent" />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="mb-20">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-cyan-500/20 rounded-full mb-6">
@@ -77,11 +77,11 @@ export function Workshops() {
           {workshops.map((workshop, index) => (
             <div
               key={index}
-              className={`group relative bg-gradient-to-br ${workshop.bgGradient} bg-white/5 backdrop-blur-sm border-2 ${workshop.borderColor} rounded-3xl p-8 hover:scale-[1.02] transition-all duration-300 overflow-hidden`}
+              className={`group  relative bg-gradient-to-br ${workshop.bgGradient} bg-white/5 backdrop-blur-sm border-2 ${workshop.borderColor} rounded-3xl p-8 hover:scale-[1.02] transition-all duration-300 overflow-hidden`}
             >
               {/* Background Glow */}
               <div className={`absolute inset-0 bg-gradient-to-br ${workshop.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-              
+
               <div className="relative">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-6">
@@ -126,19 +126,11 @@ export function Workshops() {
                       <div className="text-white">{workshop.location}</div>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-10 h-10 bg-gradient-to-br ${workshop.gradient} rounded-lg flex items-center justify-center`}>
-                      <Users className="text-white" size={18} />
-                    </div>
-                    <div>
-                      <div className="text-gray-400 text-xs">Instructor</div>
-                      <div className="text-white">{workshop.instructor}</div>
-                    </div>
-                  </div>
+
                 </div>
 
                 {/* CTA */}
-                <button className={`w-full py-4 bg-white/5 border-2 ${workshop.borderColor} text-white rounded-xl hover:bg-gradient-to-r ${workshop.gradient} hover:border-transparent transition-all group/btn flex items-center justify-center space-x-2`}>
+                <button className={`w-full py-4 bg-white/5 border-2 self-baseline ${workshop.borderColor} text-white rounded-xl hover:bg-gradient-to-r ${workshop.gradient} hover:border-transparent transition-all group/btn flex items-center justify-center space-x-2`}>
                   <span>Register for Workshop</span>
                   <ChevronRight className="group-hover/btn:translate-x-1 transition-transform" size={20} />
                 </button>

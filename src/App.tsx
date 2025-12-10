@@ -7,6 +7,8 @@ import { Sponsors } from './components/Sponsors';
 import { Registration } from './components/Registration';
 import Footer  from './components/Footer';
 
+
+const rupe = "₹"
 export default function App() {
   return (
     <div className="min-h-screen bg-[#0a0118]">

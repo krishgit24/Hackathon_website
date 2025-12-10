@@ -4,51 +4,70 @@ import { Calendar, Clock } from 'lucide-react';
 export function Timeline() {
   const phases = [
     {
-      phase: 'PRE-EVENT',
-      color: 'purple',
-      gradient: 'from-purple-500 to-purple-700',
+      phase: "DAY 1",
+      color: "purple",
+      gradient: "from-purple-500 to-purple-700",
       events: [
-        { time: 'March 1', title: 'Workshop 1: Coding Essentials', description: '2:00 PM - 5:00 PM' },
-        { time: 'March 5', title: 'Workshop 2: Design Thinking', description: '3:00 PM - 6:00 PM' },
-        { time: 'March 8', title: 'Workshop 3: IoT & AI Basics', description: '1:00 PM - 4:00 PM' },
-        { time: 'March 12', title: 'Workshop 4: Web Dev Mastery', description: '4:00 PM - 7:00 PM' },
-      ],
+        {
+          time: "9:00 AM - 10:00 AM",
+          title: "Meet & Setup",
+          description:
+            "Kick off the event with introductions, team sync-up, and environment setup to prepare for coding."
+        },
+        {
+          time: "10:00 AM - 4:00 PM",
+          title: "Coding",
+          description:
+            "Dedicated development session focused on building core project features, rapid prototyping, and shaping your solution."
+        },
+        {
+          time: "4:00 PM - 5:00 PM",
+          title: "Mentorship Round 1",
+          description:
+            "Receive strategic guidance from experienced mentors to refine ideas, resolve blockers, and strengthen your approach."
+        },
+        {
+          time: "10:00 PM - 11:00 PM",
+          title: "Mentorship Round 2",
+          description:
+            "Late-night mentor support to review progress, validate decisions, and prepare for the next development phase."
+        }
+      ]
     },
+
     {
-      phase: 'DAY 1',
-      color: 'cyan',
-      gradient: 'from-cyan-500 to-cyan-700',
+      phase: "DAY 2",
+      color: "cyan",
+      gradient: "from-cyan-500 to-cyan-700",
       events: [
-        { time: '9:00 AM', title: 'Registration & Check-in', description: 'Collect your badge & swag' },
-        { time: '10:00 AM', title: 'Opening Ceremony', description: 'Keynote & hackathon kickoff' },
-        { time: '11:00 AM', title: 'Hacking Begins!', description: 'Start building your project' },
-        { time: '1:00 PM', title: 'Lunch Break', description: 'Network with sponsors' },
-        { time: '6:00 PM', title: 'Dinner & Mini Workshop', description: 'Evening session' },
-      ],
-    },
-    {
-      phase: 'DAY 2',
-      color: 'pink',
-      gradient: 'from-pink-500 to-pink-700',
-      events: [
-        { time: '12:00 AM', title: 'Midnight Checkpoint', description: 'Snacks & mentor support' },
-        { time: '8:00 AM', title: 'Breakfast', description: 'Morning refreshments' },
-        { time: '1:00 PM', title: 'Lunch', description: 'Keep coding!' },
-        { time: '6:00 PM', title: 'Dinner', description: 'Final push begins' },
-      ],
-    },
-    {
-      phase: 'DAY 3',
-      color: 'emerald',
-      gradient: 'from-emerald-500 to-emerald-700',
-      events: [
-        { time: '8:00 AM', title: 'Breakfast', description: 'Last meal before submission' },
-        { time: '11:00 AM', title: 'Submission Deadline', description: 'Projects must be submitted' },
-        { time: '1:00 PM', title: 'Presentations', description: 'Pitch to the judges' },
-        { time: '5:00 PM', title: 'Awards Ceremony', description: 'Winners announced!' },
-      ],
-    },
+        {
+          time: "4:00 AM - 5:00 AM",
+          title: "Mentorship Round 3",
+          description:
+            "Connect with mentors for early-morning guidance, idea refinement, and technical support."
+        },
+        {
+          time: "10:00 AM",
+          title: "Coding Ends",
+          description:
+            "Wrap up all development work and prepare final assets for submission."
+        },
+        {
+          time: "11:00 AM",
+          title: "Final Submission Deadline",
+          description:
+            "Submit all project materials including code, documentation, and demo video before the final cutoff."
+        },
+        {
+          time: "12:00 PM",
+          title: "First Round Results",
+          description:
+            "Evaluation results from the first judging round are announced."
+        }
+      ]
+    }
   ];
+
 
   return (
     <section id="timeline" className="relative py-32 px-8 lg:px-20">
