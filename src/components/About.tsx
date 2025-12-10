@@ -109,7 +109,7 @@ export function About() {
             <div className="text-6xl lg:text-7xl bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-6">
               ₹10,000+
             </div>
-            <p className="text-lg text-gray-300 mb-8">
+            <p className="text-lg text-gray-300 mb-8 mx-auto max-w-2xl">
               Cash prizes, internship opportunities, tech gadgets, and exclusive swag
             </p>
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -123,7 +123,6 @@ export function About() {
                 <div className="text-2xl text-white mb-1">₹4,000</div>
                 <div className="text-gray-400">Second Prize</div>
               </div>
-
             </div>
           </div>
         </div>

@@ -29,32 +29,6 @@ export function Workshops() {
       borderColor: "border-cyan-500",
       bgGradient: "from-cyan-500/10 to-transparent",
     },
-    // {
-    //   number: '03',
-    //   title: 'IoT & AI Basics',
-    //   date: 'March 8, 2025',
-    //   time: '1:00 PM - 4:00 PM',
-    //   location: 'Tech Lab B-105',
-    //   instructor: 'Dr. Emily Rodriguez',
-    //   description: 'Explore IoT devices, sensors, machine learning concepts, and AI integration in modern applications.',
-    //   color: 'pink',
-    //   gradient: 'from-pink-500 to-pink-700',
-    //   borderColor: 'border-pink-500',
-    //   bgGradient: 'from-pink-500/10 to-transparent',
-    // },
-    // {
-    //   number: '04',
-    //   title: 'Web Development Mastery',
-    //   date: 'March 12, 2025',
-    //   time: '4:00 PM - 7:00 PM',
-    //   location: 'Computer Lab C-301',
-    //   instructor: 'Prof. Michael Chen',
-    //   description: 'Build modern web apps with React, APIs, databases, and deploy full-stack applications to the cloud.',
-    //   color: 'emerald',
-    //   gradient: 'from-emerald-500 to-emerald-700',
-    //   borderColor: 'border-emerald-500',
-    //   bgGradient: 'from-emerald-500/10 to-transparent',
-    // },
   ];
 
   return (
@@ -63,16 +37,18 @@ export function Workshops() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="mb-20">
+        {/* Header - Center Aligned */}
+        <div className="mb-20 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-cyan-500/20 rounded-full mb-6">
             <span className="text-cyan-400 text-sm tracking-wider">SKILL BUILDING</span>
           </div>
           <h2 className="text-5xl lg:text-6xl text-white mb-4">Workshop Series</h2>
-          <p className="text-xl text-gray-400 max-w-3xl">
+          <p className="text-xl text-gray-400">
             Gear up for the hackathon with our comprehensive pre-event workshops. Learn from industry experts and build the skills you need to succeed.
           </p>
         </div>
 
+        {/* Workshops Grid */}
         <div className="grid lg:grid-cols-2 gap-6">
           {workshops.map((workshop, index) => (
             <div
@@ -126,7 +102,6 @@ export function Workshops() {
                       <div className="text-white">{workshop.location}</div>
                     </div>
                   </div>
-
                 </div>
 
                 {/* CTA */}

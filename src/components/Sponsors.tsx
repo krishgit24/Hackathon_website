@@ -12,12 +12,12 @@ export function Sponsors() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent" />
       
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-cyan-500/20 rounded-full mb-6">
             <span className="text-cyan-400 text-sm tracking-wider">PARTNERS</span>
           </div>
           <h2 className="text-5xl lg:text-6xl text-white mb-4">Our Sponsors</h2>
-          <p className="text-xl text-gray-400">Proudly supported by industry leaders</p>
+          <p className="text-xl text-gray-400 ml-8">Proudly supported by industry leaders</p>
         </div>
 
         {/* Platinum Sponsors */}
@@ -51,4 +51,4 @@ export function Sponsors() {
       </div>
     </section>
   );
-} 
+}

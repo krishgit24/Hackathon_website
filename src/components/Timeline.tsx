@@ -72,12 +72,12 @@ export function Timeline() {
   return (
     <section id="timeline" className="relative py-32 px-8 lg:px-20">
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-cyan-500/20 rounded-full mb-6">
             <span className="text-cyan-400 text-sm tracking-wider">SCHEDULE</span>
           </div>
           <h2 className="text-5xl lg:text-6xl text-white mb-4">Event Timeline</h2>
-          <p className="text-xl text-gray-400">Your complete journey from workshops to victory</p>
+          <p className="text-xl text-gray-400 ml-8">Your complete journey from workshops to victory</p>
         </div>
 
         <div className="space-y-16">
