@@ -9,25 +9,25 @@ export function Timeline() {
       gradient: "from-purple-500 to-purple-700",
       events: [
         {
-          time: "9:00 AM - 10:00 AM",
+          time: "9:00 AM",
           title: "Meet & Setup",
           description:
             "Kick off the event with introductions, team sync-up, and environment setup to prepare for coding."
         },
         {
-          time: "10:00 AM - 4:00 PM",
+          time: "10:00 AM",
           title: "Coding",
           description:
             "Dedicated development session focused on building core project features, rapid prototyping, and shaping your solution."
         },
         {
-          time: "4:00 PM - 5:00 PM",
+          time: "4:00 PM",
           title: "Mentorship Round 1",
           description:
             "Receive strategic guidance from experienced mentors to refine ideas, resolve blockers, and strengthen your approach."
         },
         {
-          time: "10:00 PM - 11:00 PM",
+          time: "10:00 PM",
           title: "Mentorship Round 2",
           description:
             "Late-night mentor support to review progress, validate decisions, and prepare for the next development phase."
@@ -41,7 +41,7 @@ export function Timeline() {
       gradient: "from-cyan-500 to-cyan-700",
       events: [
         {
-          time: "4:00 AM - 5:00 AM",
+          time: "4:00 AM",
           title: "Mentorship Round 3",
           description:
             "Connect with mentors for early-morning guidance, idea refinement, and technical support."
@@ -67,7 +67,6 @@ export function Timeline() {
       ]
     }
   ];
-
 
   return (
     <section id="timeline" className="relative py-32 px-8 lg:px-20">

@@ -32,9 +32,9 @@ export function Workshops() {
   ];
 
   return (
-    <section id="workshops" className="relative py-32 px-8 lg:px-20">
+    <section id="workshops" className="relative py-32 px-6 lg:px-20">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header - Center Aligned */}
@@ -49,68 +49,81 @@ export function Workshops() {
         </div>
 
         {/* Workshops Grid */}
-        <div className="grid lg:grid-cols-2 gap-6">
-          {workshops.map((workshop, index) => (
-            <div
+        <div className="grid lg:grid-cols-2 gap-6 items-stretch">
+          {workshops.map((w, index) => (
+            <article
               key={index}
-              className={`group  relative bg-gradient-to-br ${workshop.bgGradient} bg-white/5 backdrop-blur-sm border-2 ${workshop.borderColor} rounded-3xl p-8 hover:scale-[1.02] transition-all duration-300 overflow-hidden`}
+              className={`group relative flex flex-col h-full bg-gradient-to-br ${w.bgGradient} bg-white/5 backdrop-blur-sm border-2 ${w.borderColor} rounded-3xl p-8 hover:scale-[1.02] transition-all duration-300 overflow-hidden`}
             >
               {/* Background Glow */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${workshop.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${w.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none`}
+                aria-hidden
+              />
 
-              <div className="relative">
-                {/* Header */}
+              {/* CONTENT (flexes to fill available space) */}
+              <div className="relative flex-1 flex flex-col">
+                {/* Header row */}
                 <div className="flex items-start justify-between mb-6">
-                  <div className={`text-8xl bg-gradient-to-br ${workshop.gradient} bg-clip-text text-transparent opacity-20`}>
-                    {workshop.number}
+                  <div className={`text-8xl bg-gradient-to-br ${w.gradient} bg-clip-text text-transparent opacity-20 select-none`}>
+                    {w.number}
                   </div>
-                  <div className={`px-4 py-2 bg-gradient-to-r ${workshop.gradient} rounded-full`}>
+                  <div className={`px-4 py-2 bg-gradient-to-r ${w.gradient} rounded-full`}>
                     <span className="text-white text-sm">WORKSHOP</span>
                   </div>
                 </div>
 
-                {/* Content */}
-                <h3 className="text-3xl text-white mb-3">{workshop.title}</h3>
-                <p className="text-gray-400 mb-6 leading-relaxed">{workshop.description}</p>
+                {/* Title + Description */}
+                <div className="mb-6">
+                  <h3 className="text-3xl text-white mb-3">{w.title}</h3>
+                  <p className="text-gray-400 leading-relaxed">{w.description}</p>
+                </div>
 
-                {/* Info Grid */}
+                {/* Info Grid (keeps natural height) */}
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center space-x-3">
-                    <div className={`w-10 h-10 bg-gradient-to-br ${workshop.gradient} rounded-lg flex items-center justify-center`}>
+                    <div className={`w-10 h-10 bg-gradient-to-br ${w.gradient} rounded-lg flex items-center justify-center`}>
                       <Calendar className="text-white" size={18} />
                     </div>
                     <div>
                       <div className="text-gray-400 text-xs">Date</div>
-                      <div className="text-white">{workshop.date}</div>
+                      <div className="text-white">{w.date}</div>
                     </div>
                   </div>
+
                   <div className="flex items-center space-x-3">
-                    <div className={`w-10 h-10 bg-gradient-to-br ${workshop.gradient} rounded-lg flex items-center justify-center`}>
+                    <div className={`w-10 h-10 bg-gradient-to-br ${w.gradient} rounded-lg flex items-center justify-center`}>
                       <Clock className="text-white" size={18} />
                     </div>
                     <div>
                       <div className="text-gray-400 text-xs">Time</div>
-                      <div className="text-white">{workshop.time}</div>
+                      <div className="text-white">{w.time}</div>
                     </div>
                   </div>
+
                   <div className="flex items-center space-x-3">
-                    <div className={`w-10 h-10 bg-gradient-to-br ${workshop.gradient} rounded-lg flex items-center justify-center`}>
+                    <div className={`w-10 h-10 bg-gradient-to-br ${w.gradient} rounded-lg flex items-center justify-center`}>
                       <MapPin className="text-white" size={18} />
                     </div>
                     <div>
                       <div className="text-gray-400 text-xs">Location</div>
-                      <div className="text-white">{workshop.location}</div>
+                      <div className="text-white">{w.location}</div>
                     </div>
                   </div>
                 </div>
 
-                {/* CTA */}
-                <button className={`w-full py-4 bg-white/5 border-2 self-baseline ${workshop.borderColor} text-white rounded-xl hover:bg-gradient-to-r ${workshop.gradient} hover:border-transparent transition-all group/btn flex items-center justify-center space-x-2`}>
+                {/* Spacer ensures CTA is always bottom-aligned */}
+                <div className="mt-auto" />
+
+                {/* CTA - stays at the bottom because parent is flex column */}
+                <button
+                  className={`w-full py-4 bg-white/5 border-2 ${w.borderColor} text-white rounded-xl hover:bg-gradient-to-r ${w.gradient} hover:border-transparent transition-all flex items-center justify-center space-x-2`}
+                >
                   <span>Register for Workshop</span>
-                  <ChevronRight className="group-hover/btn:translate-x-1 transition-transform" size={20} />
+                  <ChevronRight size={20} />
                 </button>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

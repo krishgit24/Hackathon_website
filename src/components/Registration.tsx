@@ -10,12 +10,12 @@ export function Registration() {
             <span className="text-cyan-400 text-sm tracking-wider">JOIN US</span>
           </div>
           <h2 className="text-5xl lg:text-6xl text-white mb-4">Register Now</h2>
-          <p className="text-xl text-gray-400 ml-8">Secure your spot at HackFest 2025 - Limited seats available!</p>
+          <p className="text-xl text-gray-400 ml-10">Secure your spot at HackFest 2025 - Limited seats available!</p>
         </div>
 
         <div className="flex flex-col gap-2">
           {/* Registration Form */}
-          <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-10 max-w-2xl mx-auto w-full">
+          <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-10">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl" />
 
             <div className="relative text-center">
@@ -23,7 +23,7 @@ export function Registration() {
 
               <button
                 onClick={() => window.open("https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform", "_blank")}
-                className="group mx-auto block py-5 px-8 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-xl hover:shadow-2xl hover:shadow-cyan-500/50 transition-all"
+                className="group w-1/2 mx-auto block py-5 px-8 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-xl hover:shadow-2xl hover:shadow-cyan-500/50 transition-all"
               >
                 <div className="flex items-center justify-center space-x-3">
                   <span className="text-white text-lg">Open Google Form</span>
