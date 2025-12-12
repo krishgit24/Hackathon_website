@@ -74,16 +74,25 @@ export function Hero() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="mobile-menu md:hidden flex flex-col items-center mt-4 gap-4 z-30">
+          <div className="mobile-menu md:hidden">
             {navItems.map((item) => (
-              <a key={item.id} href={`#${item.id}`} onClick={() => setMenuOpen(false)} className="text-white text-lg">
+              <a 
+                key={item.id} 
+                href={`#${item.id}`} 
+                onClick={() => setMenuOpen(false)} 
+                className="mobile-menu-item"
+              >
                 {item.label}
               </a>
             ))}
 
-            <div className="mobile-socials flex gap-4 mt-3">
-              <a href="#" className="p-2"><Linkedin size={20} /></a>
-              <a href="#" className="p-2"><Instagram size={20} /></a>
+            <div className="mobile-socials">
+              <a href="#" className="mobile-social-icon">
+                <Linkedin size={20} />
+              </a>
+              <a href="#" className="mobile-social-icon">
+                <Instagram size={20} />
+              </a>
             </div>
           </div>
         )}
@@ -182,7 +191,7 @@ export function Hero() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 22px; /* vertical spacing between items */
+          gap: 22px;
           max-width: 900px;
           margin: 0 auto;
         }
@@ -191,17 +200,30 @@ export function Hero() {
         .title-hackfest {
           font-size: clamp(48px, 8.5vw, 96px);
           line-height: 0.96;
-          font-weight: 700; /* reduced weight so it's less 'fat' */
+          font-weight: 900;
           margin: 0;
-          color: #ffffff;
-          letter-spacing: -1px;
+          letter-spacing: 2px;
+          background: linear-gradient(135deg, #ffffff 0%, #00d9ff 50%, #a855f7 100%);
+          background-size: 200% 200%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: gradient-shift 4s ease infinite;
+          filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.5));
+          position: relative;
+        }
+        
+        @keyframes gradient-shift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
 
         .title-year {
           font-size: clamp(36px, 6.5vw, 64px);
           margin: 0;
           font-weight: 800;
-          background: linear-gradient(to right, cyan, purple, pink);
+          background: linear-gradient(to right, #ffffff 0%, #00d9ff 50%, #a855f7 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -260,6 +282,83 @@ export function Hero() {
           .subtitle { font-size: 16px; }
           .buttons { gap: 12px; width: 100%; }
           .cta-primary, .cta-secondary { width: 100%; justify-content: center; padding: 14px 20px; }
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+          margin-top: 20px;
+          padding: 24px 20px;
+          background: rgba(10, 1, 24, 0.95);
+          backdrop-filter: blur(20px);
+          border-radius: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .mobile-menu-item {
+          color: white;
+          font-size: 18px;
+          font-weight: 500;
+          padding: 12px 24px;
+          width: 100%;
+          text-align: center;
+          border-radius: 12px;
+          transition: all 0.3s ease;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid transparent;
+        }
+
+        .mobile-menu-item:hover {
+          background: linear-gradient(135deg, rgba(0, 245, 255, 0.15), rgba(168, 85, 247, 0.15));
+          border: 1px solid rgba(0, 245, 255, 0.3);
+          transform: translateX(4px);
+          box-shadow: 0 4px 16px rgba(0, 245, 255, 0.25);
+          color: #00f5ff;
+        }
+
+        .mobile-menu-item:active {
+          transform: translateX(2px) scale(0.98);
+        }
+
+        .mobile-socials {
+          display: flex;
+          gap: 12px;
+          margin-top: 16px;
+          padding-top: 16px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-social-icon {
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          color: white;
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+
+        .mobile-social-icon:hover {
+          background: linear-gradient(135deg, rgba(0, 245, 255, 0.25), rgba(168, 85, 247, 0.25));
+          border-color: rgba(0, 245, 255, 0.5);
+          transform: translateY(-4px) scale(1.1);
+          box-shadow: 0 8px 24px rgba(0, 245, 255, 0.4);
+          color: #00f5ff;
+        }
+
+        .mobile-social-icon:active {
+          transform: translateY(-2px) scale(1.05);
         }
       `}</style>
     </section>
