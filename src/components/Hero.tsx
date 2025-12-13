@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Linkedin, Instagram, ArrowRight, Sparkles, Menu, X } from 'lucide-react';
-import ieeelogo from '../Assets/logo.png';
+import ieeelogo from '../assets/logo.png';
 
 export function Hero() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -63,10 +63,10 @@ export function Hero() {
           </button>
 
           <div className="socials hidden md:flex items-center gap-3">
-            <a href="#" className="social-icon w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
+            <a href="https://www.instagram.com/ieee_vesit/" className="social-icon w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
               <Linkedin size={18} className="text-gray-300" />
             </a>
-            <a href="#" className="social-icon w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
+            <a href="https://www.linkedin.com/company/ieeevesit/" className="social-icon w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
               <Instagram size={18} className="text-gray-300" />
             </a>
           </div>
@@ -102,12 +102,12 @@ export function Hero() {
           <div className="stack">
             <div className="inline-flex items-center space-x-3 px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-cyan-500/20 rounded-full">
               <Sparkles className="text-cyan-400" size={16} />
-              <span className="text-cyan-400 text-sm">MARCH 15-17, 2025</span>
+              <span className="text-cyan-400 text-sm">January 3 & 4, 2026</span>
             </div>
 
-            <h1 className="title-hackfest">HACKFEST</h1>
+            <h1 className="title-hackfest">ARCANE</h1>
 
-            <h2 className="title-year">2025</h2>
+            <h2 className="title-year">2026</h2>
 
             <p className="subtitle">
               24 hours of innovation • ₹10K+ prizes

@@ -13,7 +13,7 @@ export function Registration() {
             Register Now
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-400 px-4">
-            Secure your spot at HackFest 2025 - Limited seats available!
+            Secure your spot at Arcane 2026
           </p>
         </div>
 
@@ -28,8 +28,8 @@ export function Registration() {
               </h3>
 
               <button
-                onClick={() => window.open("https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform", "_blank")}
-                className="group w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto block py-4 md:py-5 px-6 md:px-8 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-xl hover:shadow-2xl hover:shadow-cyan-500/50 transition-all"
+                onClick={() => window.open("https://forms.gle/xBZrnd4jiGcBkKUU9", "_blank")}
+                className="group w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto block py-4 md:py-5 px-6 md:px-8 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-xl cursor-pointer hover:shadow-2xl hover:shadow-cyan-500/50 transition-all"
               >
                 <div className="flex items-center justify-center space-x-3">
                   <span className="text-white text-base md:text-lg font-medium">
@@ -40,7 +40,7 @@ export function Registration() {
               </button>
 
               <p className="text-center text-gray-400 text-sm md:text-base mt-4 px-4">
-                Registration deadline: <span className="text-cyan-400 font-semibold">March 10, 2025</span>
+                Registration deadline: <span className="text-cyan-400 font-semibold">January 1st, 2026</span>
               </p>
             </div>
           </div>
@@ -50,9 +50,9 @@ export function Registration() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-5 md:p-6 text-center hover:bg-white/10 transition-all">
                 <div className="text-2xl sm:text-3xl bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2 font-bold">
-                  ₹100
+                  ₹ 25
                 </div>
-                <div className="text-gray-400 text-sm md:text-base">Entry Fee</div>
+                <div className="text-gray-400 text-sm md:text-base">Entry Fee (Non-member)</div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-5 md:p-6 text-center hover:bg-white/10 transition-all">
                 <div className="text-2xl sm:text-3xl bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2 font-bold">
@@ -62,9 +62,9 @@ export function Registration() {
               </div>
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-5 md:p-6 text-center hover:bg-white/10 transition-all">
                 <div className="text-2xl sm:text-3xl bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent mb-2 font-bold">
-                  1st, 2nd, 3rd
+                  FE, SE, & TE
                 </div>
-                <div className="text-gray-400 text-sm md:text-base">Prize Winners</div>
+                <div className="text-gray-400 text-sm md:text-base">Years Allowed</div>
               </div>
             </div>
           </div>

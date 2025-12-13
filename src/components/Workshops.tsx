@@ -6,11 +6,11 @@ export function Workshops() {
     {
       number: "01",
       title: "Frontend",
-      date: "March 1, 2025",
-      time: "2:00 PM - 5:00 PM",
-      location: "Google Meet(Online)",
+      date: "December 22, 2025",
+      time: "2:30 PM Onwards",
+      location: "Google Meet (Online)",
       description:
-        "Dive into modern frontend development with hands-on training in React, component-driven architecture, responsive design, and performance optimization. Build visually stunning and high-quality interfaces ready for real-world projects and hackathons.",
+        "Dive into modern frontend development with hands-on training in React, component-driven architecture, responsive design, and performance optimization. Build visually stunning and high-quality interfaces.",
       color: "purple",
       gradient: "from-purple-500 to-purple-700",
       borderColor: "border-purple-500",
@@ -19,9 +19,9 @@ export function Workshops() {
     {
       number: "02",
       title: "Backend",
-      date: "March 5, 2025",
-      time: "3:00 PM - 6:00 PM",
-      location: "Google Meet(Online)",
+      date: "December 23, 2025",
+      time: "2:30 PM Onwards",
+      location: "Google Meet (Online)",
       description:
         "Learn the foundations of scalable backend architecture, APIs, authentication, and database management using Node.js and Express. Build secure, high-performance server systems that power real applications end-to-end.",
       color: "cyan",
@@ -116,12 +116,12 @@ export function Workshops() {
                 <div className="mt-auto" />
 
                 {/* CTA - stays at the bottom because parent is flex column */}
-                <button
+                <a href='#' target='_blank'
                   className={`w-full py-4 bg-white/5 border-2 ${w.borderColor} text-white rounded-xl hover:bg-gradient-to-r ${w.gradient} hover:border-transparent transition-all flex items-center justify-center space-x-2`}
                 >
                   <span>Register for Workshop</span>
                   <ChevronRight size={20} />
-                </button>
+                </a>
               </div>
             </article>
           ))}

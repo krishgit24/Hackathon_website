@@ -15,9 +15,9 @@ export default function Footer() {
       <div className="relative z-10 text-center px-4">
         <h1
           className="
-            text-4xl 
-            md:text-5xl 
-            lg:text-6xl 
+            text-6xl 
+            md:text-7xl 
+            lg:text-8xl 
             font-bold 
             uppercase
             tracking-[0.04em]    /* ✔ very light spacing */
@@ -27,9 +27,9 @@ export default function Footer() {
             to-pink-400 
             bg-clip-text 
             text-transparent
-          "
+          " 
         >
-          HACKFEST
+          ARCANE 2026
         </h1>
       </div>
     </footer>

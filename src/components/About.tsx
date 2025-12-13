@@ -5,7 +5,7 @@ export function About() {
   const stats = [
     {
       icon: Trophy,
-      value: '₹10K+',
+      value: '₹ 10K + Goodies',
       label: 'Prize Pool',
       gradient: 'from-yellow-400 to-orange-500',
     },
@@ -77,10 +77,10 @@ export function About() {
             <span className="text-cyan-400 text-sm tracking-wider">ABOUT THE EVENT</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl text-white mb-4">Why Join HackFest?</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl text-white mb-4">Why Join ARCANE?</h2>
 
           <p className="text-lg md:text-xl text-gray-400 mb-6 leading-relaxed ml-8">
-            HackFest 2025 is IEEE's flagship hackathon bringing together the brightest minds to solve real-world problems through innovation and collaboration. Join teams across domains to build prototypes, learn from mentors, and compete for exciting prizes.
+            Arcane 2026 is IEEE's flagship hackathon bringing together the brightest minds to solve real-world problems through innovation and collaboration. Join teams across domains to build prototypes, learn from mentors, and compete for exciting prizes.
           </p>
 
           <div className="grid sm:grid-cols-2 gap-6 mt-6">
@@ -97,9 +97,9 @@ export function About() {
           <div className="flex justify-start mt-10">
   <ul className="space-y-4 text-left max-w-xl">
     {[
-      '36 hours of immersive coding with round-the-clock support',
+      '24 hours of immersive coding with round-the-clock support',
       'Access to modern tools, frameworks & cloud resources',
-      'Win exciting prizes, internships & exclusive hackathon swag',
+      'Win exciting prizes & exclusive hackathon swags',
     ].map((item, idx) => (
       <li key={idx} className="flex items-start space-x-3">
         <div className="w-5 h-5 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-md flex items-center justify-center flex-shrink-0 mt-1 shadow-md">
@@ -126,22 +126,22 @@ export function About() {
             <h3 className="text-2xl md:text-3xl lg:text-4xl text-white mb-3">Exciting Prize Pool</h3>
 
             <div className="text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
-              ₹10,000+
+              ₹ 10,000
             </div>
 
             <p className="text-sm md:text-base text-gray-300 mb-6 mx-auto max-w-2xl">
-              Cash prizes, internship opportunities, tech gadgets, and exclusive swag
+              Cash prizes and exclusive swags
             </p>
 
             <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
                 <div className="text-2xl text-yellow-400 mb-1">🥇</div>
-                <div className="text-lg text-white mb-1">₹6,000</div>
+                <div className="text-lg text-white mb-1">₹ 6,000</div>
                 <div className="text-sm text-gray-400">First Prize</div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
                 <div className="text-2xl text-gray-300 mb-1">🥈</div>
-                <div className="text-lg text-white mb-1">₹4,000</div>
+                <div className="text-lg text-white mb-1">₹ 4,000</div>
                 <div className="text-sm text-gray-400">Second Prize</div>
               </div>
             </div>
