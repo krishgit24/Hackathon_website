@@ -178,7 +178,7 @@ export function Hero() {
         .logo img.logo-size { width: 48px; }
         .logo-text { font-size: 20px; color: white; font-weight: 600; letter-spacing: 0.6px; }
         .nav-links { display: flex; gap: 28px; align-items: center; }
-        .nav-link { color: white; transition: color 0.25s ease; padding-bottom: 6px; letter-spacing: 1px; }
+        .nav-link { color: white; transition: color 0.25s ease; letter-spacing: 1px; }
         .nav-link:hover { color: #00ffff; }
         .underline { position: absolute; bottom: 0; left: 0; height: 2px; width: 100%; background: white; transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
         .underline.active { transform: scaleX(1); }
@@ -198,7 +198,7 @@ export function Hero() {
 
         /* Titles */
         .title-hackfest {
-          font-size: clamp(48px, 8.5vw, 96px);
+          font-size: clamp(120px, 8.5vw, 96px);
           line-height: 0.96;
           font-weight: 900;
           margin: 0;
@@ -277,7 +277,7 @@ export function Hero() {
           .socials { display: none; }
           .hamburger { display: block; }
           .stack { gap: 18px; padding: 0 12px; }
-          .title-hackfest { font-size: 54px; letter-spacing: -0.5px; }
+          .title-hackfest { font-size: 80px; letter-spacing: -0.5px; }
           .title-year { font-size: 44px; }
           .subtitle { font-size: 16px; }
           .buttons { gap: 12px; width: 100%; }
