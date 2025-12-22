@@ -1,7 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { User, Mail, Phone, Users, GraduationCap, CheckCircle, ArrowRight } from 'lucide-react';
 
 export function Registration() {
+
+  /* ================= Countdown Logic ================= */
+  const targetDate = new Date("2026-01-03T00:00:00");
+
+  const calculateTimeLeft = () => {
+    const difference = targetDate - new Date();
+    if (difference <= 0) return null;
+
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+  /* =================================================== */
+
   return (
     <section id="register" className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-20">
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -23,21 +49,45 @@ export function Registration() {
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5 rounded-2xl md:rounded-3xl" />
 
             <div className="relative text-center">
+
+              {/* ================= Timer INSIDE Form ================= */}
+              {timeLeft && (
+                <div className="mb-8 flex justify-center">
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-6 py-4">
+                    <p className="text-gray-400 text-sm mb-3 tracking-wide">
+                      Event Starts In
+                    </p>
+
+                    <div className="flex gap-4 justify-center">
+                      {Object.entries(timeLeft).map(([label, value]) => (
+                        <div key={label}>
+                          <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                            {String(value).padStart(2, '0')}
+                          </div>
+                          <div className="text-gray-400 text-xs mt-1 uppercase tracking-wider">
+                            {label}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* ===================================================== */}
+
               <h3 className="text-2xl sm:text-3xl text-white mb-6 md:mb-8 font-semibold">
                 Registration Form
               </h3>
 
               <button
-                onClick={() => window.open("https://forms.gle/xBZrnd4jiGcBkKUU9", "_blank")}
-                className="group w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto block py-4 md:py-5 px-6 md:px-8 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-xl cursor-pointer hover:shadow-2xl hover:shadow-cyan-500/50 transition-all"
-              >
-                <div className="flex items-center justify-center space-x-3">
-                  <span className="text-white text-base md:text-lg font-medium">
-                    Open Google Form
-                  </span>
-                  <ArrowRight className="text-white group-hover:translate-x-1 transition-transform" size={20} />
-                </div>
-              </button>
+  onClick={() => window.location.href = "/register"}
+  className="group w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto block py-4 md:py-5 px-6 md:px-8 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-xl cursor-pointer hover:shadow-2xl hover:shadow-cyan-500/50 transition-all"
+>
+  <span className="text-white text-base md:text-lg font-medium">
+    Proceed to Registration
+  </span>
+</button>
+
 
               <p className="text-center text-gray-400 text-sm md:text-base mt-4 px-4">
                 Registration deadline: <span className="text-cyan-400 font-semibold">January 1st, 2026</span>

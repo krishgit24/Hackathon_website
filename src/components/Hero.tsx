@@ -8,7 +8,6 @@ export function Hero() {
 
   const navItems = [
     { id: "about", label: "About" },
-    { id: "workshops", label: "Workshops" },
     { id: "timeline", label: "Timeline" },
     { id: "sponsors", label: "Sponsors" },
     { id: "register", label: "Register" },
@@ -63,10 +62,10 @@ export function Hero() {
           </button>
 
           <div className="socials hidden md:flex items-center gap-3">
-            <a href="https://www.instagram.com/ieee_vesit/" className="social-icon w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
+            <a href="https://www.linkedin.com/company/ieeevesit/" className="social-icon w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
               <Linkedin size={18} className="text-gray-300" />
             </a>
-            <a href="https://www.linkedin.com/company/ieeevesit/" className="social-icon w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
+            <a href="https://www.instagram.com/ieee_vesit/" className="social-icon w-10 h-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 hover:border-cyan-500/50 transition-all">
               <Instagram size={18} className="text-gray-300" />
             </a>
           </div>
@@ -125,12 +124,12 @@ export function Hero() {
                 </div>
               </a>
 
-              <a
+              {/* <a
                 href="#workshops"
                 className="cta-secondary px-10 py-5 bg-white/5 backdrop-blur-sm border-2 border-white/10 text-white rounded-full inline-flex items-center"
               >
-                VIEW WORKSHOPS
-              </a>
+                 VIEW WORKSHOPS 
+              </a> */}
             </div>
           </div>
         </div>
