@@ -76,7 +76,7 @@ export function Registration() {
               {String(value).padStart(2, '0')}
             </div>
 
-            <div className="text-gray-400 text-md mt-1 sm:mt-2 md:mt-3 lg:mt-4 uppercase tracking-widest">
+            <div className="text-gray-400 text-sm mt-1 sm:mt-2 md:mt-3 lg:mt-4 uppercase tracking-widest">
               {label}
             </div>
 
