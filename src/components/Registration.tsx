@@ -4,7 +4,7 @@ import { User, Mail, Phone, Users, GraduationCap, CheckCircle, ArrowRight } from
 export function Registration() {
 
   /* ================= Countdown Logic ================= */
-  const targetDate = new Date("2026-01-03T00:00:00");
+  const targetDate = new Date("2026-01-03T09:00:00");
 
   const calculateTimeLeft = () => {
     const difference = targetDate - new Date();
@@ -53,29 +53,30 @@ export function Registration() {
 {/* ================= BIG Timer INSIDE Form ================= */}
 {timeLeft && (
   <div className="mb-4 flex justify-center">
-    <div className="px-12 py-10 w-full max-w-5xl">
+    <div className="px-4 sm:px-6 md:px-8 lg:px-12 py-4 sm:py-6 md:py-8 lg:py-10 w-full max-w-5xl">
       
-      <p className="text-gray-300 text-xl mb-8 tracking-[0.3em] text-center">
+      <p className="text-gray-300 text-2xl md:text-2xl lg:text-2xl mb-4 sm:mb-6 md:mb-8 tracking-[0.3em] text-center">
         HACKATHON STARTS IN
       </p>
 
-      <div className="flex justify-between gap-8 sm:gap-12 md:gap-16">
+      <div className="flex justify-between gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
         {Object.entries(timeLeft).map(([label, value]) => (
-          <div key={label} className="text-center flex-1">
+          <div key={label} className="text-center flex-1 min-w-0">
             
             <div
               className="
-                text-6xl sm:text-7xl md:text-9xl lg:text-[10rem]
+                text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl
                 font-extrabold
                 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400
                 bg-clip-text text-transparent
                 leading-none
+                break-words
               "
             >
               {String(value).padStart(2, '0')}
             </div>
 
-            <div className="text-gray-400 text-sm sm:text-base mt-4 uppercase tracking-widest">
+            <div className="text-gray-400 text-md mt-1 sm:mt-2 md:mt-3 lg:mt-4 uppercase tracking-widest">
               {label}
             </div>
 
