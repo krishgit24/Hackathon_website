@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import kshitij_gpay from "../assets/kshitij_gpay.jpeg";
+import kshitij_gpay from "../Assets/kshitij_gpay.jpeg";
 
 export default function RegisterForm() {
   const [loading, setLoading] = useState(false);

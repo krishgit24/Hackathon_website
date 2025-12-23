@@ -18,7 +18,7 @@ export function About() {
     {
       icon: Layers,
       value: "Domains",
-      label: "Web Dev • ML • IoT",
+      label: "3 Domains, 6 PS",
       gradient: "from-purple-400 to-pink-500",
     },
     {
@@ -99,10 +99,10 @@ export function About() {
           <div className="grid sm:grid-cols-2 gap-6 mt-6">
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 text-left">
               <h4 className="text-xl text-white mb-2">
-                Workshops & Mentorship
+                Mentorship
               </h4>
               <p className="text-gray-400">
-                Pre-event workshops and on-site mentors to help you ship
+                On-site mentors to help you ship
                 polished projects.
               </p>
             </div>
@@ -155,28 +155,41 @@ export function About() {
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/8 via-cyan-500/8 to-pink-500/8 pointer-events-none" />
 
           <div className="relative text-center">
-            <h3 className="text-2xl md:text-3xl lg:text-4xl text-white mb-3">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl text-white mb-6 font-bold tracking-wide drop-shadow-lg">
               Exciting Prize Pool
             </h3>
 
-            <div className="text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
-              ₹ 10,000
+            <div className="relative mb-6">
+              <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent tracking-tighter leading-none drop-shadow-2xl">
+                ₹ 10,000
+              </div>
+              <div className="absolute inset-0 text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent tracking-tighter leading-none blur-sm opacity-30">
+                ₹ 10,000
+              </div>
             </div>
 
-            <p className="text-sm md:text-base text-gray-300 mb-6 mx-auto max-w-2xl">
+            <p className="text-base md:text-lg text-gray-300 mb-8 mx-auto max-w-2xl font-medium tracking-wide">
               Cash prizes and exclusive swags
             </p>
 
-            <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
-                <div className="text-2xl text-yellow-400 mb-1">🥇</div>
-                <div className="text-lg text-white mb-1">₹ 6,000</div>
-                <div className="text-sm text-gray-400">First Prize</div>
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300 hover:scale-105">
+                <div className="text-3xl mb-3 transform group-hover:scale-110 transition-transform">🥇</div>
+                <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent mb-2 tracking-wide">
+                  ₹ 6,000
+                </div>
+                <div className="text-base font-semibold text-gray-300 tracking-wider uppercase">
+                  First Prize
+                </div>
               </div>
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
-                <div className="text-2xl text-gray-300 mb-1">🥈</div>
-                <div className="text-lg text-white mb-1">₹ 4,000</div>
-                <div className="text-sm text-gray-400">Second Prize</div>
+              <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300 hover:scale-105">
+                <div className="text-3xl mb-3 transform group-hover:scale-110 transition-transform">🥈</div>
+                <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-gray-300 to-gray-400 bg-clip-text text-transparent mb-2 tracking-wide">
+                  ₹ 4,000
+                </div>
+                <div className="text-base font-semibold text-gray-300 tracking-wider uppercase">
+                  Second Prize
+                </div>
               </div>
             </div>
           </div>

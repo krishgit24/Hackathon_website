@@ -16,7 +16,7 @@ export function Timeline() {
         },
         {
           time: "10:00 AM",
-          title: "Coding",
+          title: "Coding Round Begins",
           description:
             "Dedicated development session focused on building core project features, rapid prototyping, and shaping your solution."
         },
@@ -40,12 +40,12 @@ export function Timeline() {
       color: "cyan",
       gradient: "from-cyan-500 to-cyan-700",
       events: [
-        {
-          time: "4:00 AM",
-          title: "Mentorship Round 3",
-          description:
-            "Connect with mentors for early-morning guidance, idea refinement, and technical support."
-        },
+        // {
+        //   time: "4:00 AM",
+        //   title: "Mentorship Round 3",
+        //   description:
+        //     "Connect with mentors for early-morning guidance, idea refinement, and technical support."
+        // },
         {
           time: "10:00 AM",
           title: "Coding Ends",
@@ -69,7 +69,7 @@ export function Timeline() {
   ];
 
   return (
-    <section id="timeline" className="relative py-32 px-8 lg:px-20">
+    <section id="timeline" className="relative py-10 px-8 lg:px-20">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-cyan-500/20 rounded-full mb-6">
