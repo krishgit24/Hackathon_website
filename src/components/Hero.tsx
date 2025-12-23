@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Linkedin, Instagram, ArrowRight, Sparkles, Menu, X } from 'lucide-react';
-import ieeelogo from '../assets/logo.png';
+import ieeelogo from '../Assets/logo.png';
 
 export function Hero() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);

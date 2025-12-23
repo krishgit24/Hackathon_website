@@ -29,7 +29,7 @@ export function Registration() {
   /* =================================================== */
 
   return (
-    <section id="register" className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-20">
+    <section id="register" className="relative py-10 md:py-10 px-4 sm:px-6 lg:px-20">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto px-4">
           <div className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-cyan-500/20 rounded-full mb-6">
@@ -50,29 +50,32 @@ export function Registration() {
 
             <div className="relative text-center">
 {/* ================= BIG Timer INSIDE Form ================= */}
+{/* ================= BIG Timer INSIDE Form ================= */}
 {timeLeft && (
-  <div className="mb-12 flex justify-center">
-    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-10 py-8 shadow-xl">
+  <div className="mb-4 flex justify-center">
+    <div className="px-12 py-10 w-full max-w-5xl">
       
-      <p className="text-gray-300 text-lg mb-6 tracking-widest text-center">
-        EVENT STARTS IN
+      <p className="text-gray-300 text-xl mb-8 tracking-[0.3em] text-center">
+        HACKATHON STARTS IN
       </p>
 
-      <div className="flex gap-5 sm:gap-10 justify-center">
+      <div className="flex justify-between gap-8 sm:gap-12 md:gap-16">
         {Object.entries(timeLeft).map(([label, value]) => (
-          <div key={label} className="text-center">
+          <div key={label} className="text-center flex-1">
             
-            <div className="
-              text-5xl sm:text-6xl md:text-9xl
-              font-extrabold
-              bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400
-              bg-clip-text text-transparent
-              leading-none
-            ">
+            <div
+              className="
+                text-6xl sm:text-7xl md:text-9xl lg:text-[10rem]
+                font-extrabold
+                bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400
+                bg-clip-text text-transparent
+                leading-none
+              "
+            >
               {String(value).padStart(2, '0')}
             </div>
 
-            <div className="text-gray-400 text-sm mt-3 uppercase tracking-widest">
+            <div className="text-gray-400 text-sm sm:text-base mt-4 uppercase tracking-widest">
               {label}
             </div>
 
@@ -85,22 +88,27 @@ export function Registration() {
 )}
 {/* ===================================================== */}
 
+{/* ===================================================== */}
+
               <h3 className="text-2xl sm:text-3xl text-white mb-6 md:mb-8 font-semibold">
                 Registration Form
               </h3>
 
-              <button
-  onClick={() => window.location.href = "/register"}
-  className="group w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto block py-4 md:py-5 px-6 md:px-8 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-xl cursor-pointer hover:shadow-2xl hover:shadow-cyan-500/50 transition-all"
+              <a
+  href="/register"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto block py-4 md:py-5 px-6 md:px-8 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-xl cursor-pointer hover:shadow-2xl hover:shadow-cyan-500/50 transition-all text-center"
 >
   <span className="text-white text-base md:text-lg font-medium">
     Proceed to Registration
   </span>
-</button>
+</a>
+
 
 
               <p className="text-center text-gray-400 text-sm md:text-base mt-4 px-4">
-                Registration deadline: <span className="text-cyan-400 font-semibold">January 1st, 2026</span>
+                Registration deadline: <span className="text-cyan-400 font-semibold">January 2nd, 2026</span>
               </p>
             </div>
           </div>
@@ -110,7 +118,7 @@ export function Registration() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl md:rounded-2xl p-5 md:p-6 text-center hover:bg-white/10 transition-all">
                 <div className="text-2xl sm:text-3xl bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2 font-bold">
-                  ₹ 25
+                  ₹ 50
                 </div>
                 <div className="text-gray-400 text-sm md:text-base">Entry Fee (Non-member)</div>
               </div>
