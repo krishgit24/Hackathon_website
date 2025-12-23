@@ -12,21 +12,25 @@ export default function RegisterForm() {
   leaderYear: "",
   leaderClass: "",
   leaderWhatsapp: "",
+  leaderIEEEMember: false,
 
   member2Name: "",
   member2Branch: "",
   member2Year: "",
   member2Class: "",
+  member2IEEEMember: false,
 
   member3Name: "",
   member3Branch: "",
   member3Year: "",
   member3Class: "",
+  member3IEEEMember: false,
 
   member4Name: "",
   member4Branch: "",
   member4Year: "",
   member4Class: "",
+  member4IEEEMember: false,
   // simple text field for transaction reference
   transactionId: "",
 });
@@ -38,8 +42,26 @@ export default function RegisterForm() {
   const SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbyRXebkK9a3SuHGsCbXgBSXXzP2lZcrAiZwaHLq6GlLwFb_0_rRn9MYjYnaOZYjdAisqg/exec";
 
+  // Calculate registration fee based on IEEE memberships
+  const calculateFee = () => {
+    // Start with all 4 members = ₹200
+    let fee = 200;
+    
+    // Reduce ₹50 for each IEEE member
+    if (form.leaderIEEEMember) fee -= 50;
+    if (form.member2IEEEMember) fee -= 50;
+    if (form.member3IEEEMember) fee -= 50;
+    if (form.member4IEEEMember) fee -= 50;
+
+    return fee;
+  };
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleToggle = (fieldName) => {
+    setForm({ ...form, [fieldName]: !form[fieldName] });
   };
 
   const handleFileChange = (e) => {
@@ -59,6 +81,9 @@ export default function RegisterForm() {
         payload.append(key, value);
       });
 
+      // add calculated fee
+      payload.append("totalFee", calculateFee());
+
       // add screenshot if provided
       if (screenshot) {
         payload.append("screenshot", screenshot);
@@ -66,7 +91,7 @@ export default function RegisterForm() {
 
       await fetch(SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors",
+        // mode: "no-cors",
         body: payload,
       });
 
@@ -263,11 +288,104 @@ export default function RegisterForm() {
     textAlign: "center",
     marginTop: "4px",
   },
+
+  memberHeader: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: "14px",
+  },
+
+  toggleContainer: {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+  },
+
+  toggleLabel: {
+    fontSize: "13px",
+    color: "#e5e7eb",
+    fontWeight: "500",
+  },
+
+  toggleSwitch: {
+    position: "relative",
+    width: "50px",
+    height: "26px",
+    background: "rgba(255,255,255,0.15)",
+    borderRadius: "13px",
+    cursor: "pointer",
+    transition: "background 0.3s ease",
+    border: "1px solid rgba(255,255,255,0.2)",
+  },
+
+  toggleSwitchActive: {
+    background: "linear-gradient(90deg, #22d3ee, #a855f7)",
+  },
+
+  toggleKnob: {
+    position: "absolute",
+    top: "2px",
+    left: "2px",
+    width: "20px",
+    height: "20px",
+    background: "#fff",
+    borderRadius: "50%",
+    transition: "transform 0.3s ease",
+    boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+  },
+
+  toggleKnobActive: {
+    transform: "translateX(24px)",
+  },
+
+  feeBox: {
+    marginTop: "20px",
+    padding: "16px",
+    borderRadius: "12px",
+    background: "rgba(34,211,238,0.1)",
+    border: "1px solid rgba(34,211,238,0.3)",
+  },
+
+  feeText: {
+    fontSize: "16px",
+    color: "#e5e7eb",
+    fontWeight: "600",
+    textAlign: "center",
+  },
+
+  feeAmount: {
+    fontSize: "24px",
+    fontWeight: "800",
+    background: "linear-gradient(90deg, #22d3ee, #a855f7)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  },
 };
 
   // QR image from assets
   const qrPlaceholder = kshitij_gpay;
 
+  // Toggle component
+  const ToggleSwitch = ({ checked, onChange, label }) => (
+    <div style={styles.toggleContainer}>
+      <span style={styles.toggleLabel}>{label}</span>
+      <div
+        style={{
+          ...styles.toggleSwitch,
+          ...(checked ? styles.toggleSwitchActive : {}),
+        }}
+        onClick={onChange}
+      >
+        <div
+          style={{
+            ...styles.toggleKnob,
+            ...(checked ? styles.toggleKnobActive : {}),
+          }}
+        />
+      </div>
+    </div>
+  );
 
   if (success) {
     return (
@@ -303,6 +421,15 @@ export default function RegisterForm() {
   onChange={handleChange}
 />
 <br /><br />
+
+<div style={styles.memberHeader}>
+  <div style={styles.sectionTitle} >Team Leader</div>
+  <ToggleSwitch
+    checked={form.leaderIEEEMember}
+    onChange={() => handleToggle("leaderIEEEMember")}
+    label="IEEE VESIT Member"
+  />
+</div>
 
 <input
   style={styles.input}
@@ -354,7 +481,15 @@ export default function RegisterForm() {
   />
 </div>
 
-<div style={styles.sectionTitle}>Team Member 2</div>
+<div style={styles.memberHeader}>
+  <div style={styles.sectionTitle} >Team Member 2</div>
+  <ToggleSwitch
+    checked={form.member2IEEEMember}
+    onChange={() => handleToggle("member2IEEEMember")}
+    label="IEEE VESIT Member"
+  />
+</div>
+
 <input
   style={styles.input}
   name="member2Name"
@@ -392,6 +527,15 @@ export default function RegisterForm() {
       <div style={styles.sectionTitle}>Additional Members</div>
 
 {/* Team Member 3 */}
+<div style={styles.memberHeader}>
+  <div style={{ fontSize: "16px", color: "#e5e7eb", fontWeight: "500" }}>Team Member 3 (Optional)</div>
+  <ToggleSwitch
+    checked={form.member3IEEEMember}
+    onChange={() => handleToggle("member3IEEEMember")}
+    label="IEEE VESIT Member"
+  />
+</div>
+
 <input
   style={styles.input}
   name="member3Name"
@@ -424,6 +568,15 @@ export default function RegisterForm() {
 <br /><br />
 
 {/* Team Member 4 */}
+<div style={styles.memberHeader}>
+  <div style={{ fontSize: "16px", color: "#e5e7eb", fontWeight: "500" }}>Team Member 4 (Optional)</div>
+  <ToggleSwitch
+    checked={form.member4IEEEMember}
+    onChange={() => handleToggle("member4IEEEMember")}
+    label="IEEE VESIT Member"
+  />
+</div>
+
 <input
   style={styles.input}
   name="member4Name"
@@ -452,6 +605,16 @@ export default function RegisterForm() {
     onChange={handleChange}
   />
 </div>
+
+        {/* Fee Display */}
+        <div style={styles.feeBox}>
+          <div style={styles.feeText}>
+            Total Registration Fee: <span style={styles.feeAmount}>₹{calculateFee()}</span>
+          </div>
+          <div style={{ fontSize: "12px", color: "#9ca3af", textAlign: "center", marginTop: "8px" }}>
+            ₹50 per non-IEEE member · IEEE VESIT members register free
+          </div>
+        </div>
 
         {/* Payment details: transaction + screenshot + QR */}
         <div style={styles.sectionTitle}>Payment & Verification</div>
