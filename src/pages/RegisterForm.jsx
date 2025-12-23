@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import kshitij_gpay from "../Assets/kshitij_gpay.jpeg";
 
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycby8HOSVFLvAUaujpNEzlLqFNqmAIBAnCC9AR-STu_-RGuumd2EIZn-53qCVziHQMXb6YA/exec";
+
 export default function RegisterForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -39,8 +42,8 @@ export default function RegisterForm() {
   const [screenshot, setScreenshot] = useState(null);
 
   // Google Apps Script Web App URL (already deployed in your project)
-  const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbyRXebkK9a3SuHGsCbXgBSXXzP2lZcrAiZwaHLq6GlLwFb_0_rRn9MYjYnaOZYjdAisqg/exec";
+  // const SCRIPT_URL =
+  //   "https://script.google.com/macros/s/AKfycbyRXebkK9a3SuHGsCbXgBSXXzP2lZcrAiZwaHLq6GlLwFb_0_rRn9MYjYnaOZYjdAisqg/exec";
 
   // Calculate registration fee based on IEEE memberships
   const calculateFee = () => {
@@ -69,36 +72,62 @@ export default function RegisterForm() {
     setScreenshot(file || null);
   };
 
+  const fileToBase64 = (file) =>
+    new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = () =>
+        resolve(reader.result.split(",")[1]);
+      reader.readAsDataURL(file);
+    });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const payload = new FormData();
+      let screenshotUrl = "";
 
-      // add all text fields
-      Object.entries(form).forEach(([key, value]) => {
-        payload.append(key, value);
-      });
-
-      // add calculated fee
-      payload.append("totalFee", calculateFee());
-
-      // add screenshot if provided
+      // ===============================
+      // 1️⃣ UPLOAD IMAGE FIRST
+      // ===============================
       if (screenshot) {
-        payload.append("screenshot", screenshot);
+        const base64 = await fileToBase64(screenshot);
+
+        const uploadRes = await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode:"no-cors",
+          body: new URLSearchParams({
+            action: "upload",
+            fileData: base64,
+            fileName: screenshot.name,
+            mimeType: screenshot.type,
+            teamName: form.teamName,
+          }),
+        });
+
+        // const uploadJson = await uploadRes.json();
+        // screenshotUrl = uploadJson.url;
       }
+
+      // ===============================
+      // 2️⃣ SUBMIT FORM DATA
+      // ===============================
+      const payload = new URLSearchParams({
+        ...form,
+        totalFee: calculateFee(),
+        screenshotUrl,
+      });
 
       await fetch(SCRIPT_URL, {
         method: "POST",
-        // mode: "no-cors",
+        mode:"no-cors",
         body: payload,
       });
 
-      setSuccess(true); // assume success if network call didn't throw
+      setSuccess(true);
     } catch (err) {
       console.error(err);
-      alert("Submission failed. Please try again.");
+      alert("Submission failed");
     }
 
     setLoading(false);
