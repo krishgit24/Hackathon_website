@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import kshitij_gpay from "../assets/kshitij_gpay.jpeg";
 
 export default function RegisterForm() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
- const [form, setForm] = useState({
+  const [form, setForm] = useState({
   teamName: "",
   leaderName: "",
   leaderBranch: "",
@@ -26,32 +27,54 @@ export default function RegisterForm() {
   member4Branch: "",
   member4Year: "",
   member4Class: "",
+  // simple text field for transaction reference
+  transactionId: "",
 });
 
+  // Screenshot file state
+  const [screenshot, setScreenshot] = useState(null);
 
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwjguY3BzzMfsbkgDGGDiN4sQPrdjtj4ESni1NcxMgvfzpm5IxfGjsnneZcdKB3D_sBrQ/exec";
+  // Google Apps Script Web App URL (already deployed in your project)
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbyRXebkK9a3SuHGsCbXgBSXXzP2lZcrAiZwaHLq6GlLwFb_0_rRn9MYjYnaOZYjdAisqg/exec";
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files && e.target.files[0];
+    setScreenshot(file || null);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-   try {
-  await fetch(SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(form),
-  });
+    try {
+      const payload = new FormData();
 
-  setSuccess(true); // assume success if no error
-} catch (err) {
-  alert("Submission failed. Please try again.");
-}
+      // add all text fields
+      Object.entries(form).forEach(([key, value]) => {
+        payload.append(key, value);
+      });
 
+      // add screenshot if provided
+      if (screenshot) {
+        payload.append("screenshot", screenshot);
+      }
+
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: payload,
+      });
+
+      setSuccess(true); // assume success if network call didn't throw
+    } catch (err) {
+      console.error(err);
+      alert("Submission failed. Please try again.");
+    }
 
     setLoading(false);
   };
@@ -159,7 +182,91 @@ export default function RegisterForm() {
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
   },
+
+  paymentRow: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "20px",
+    marginTop: "24px",
+    alignItems: "flex-start",
+  },
+
+  uploadBox: {
+    marginTop: "12px",
+    padding: "14px 16px",
+    borderRadius: "14px",
+    border: "1px dashed rgba(255,255,255,0.26)",
+    background: "rgba(15,23,42,0.7)",
+  },
+
+  uploadLabel: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "4px",
+    marginBottom: "10px",
+    cursor: "pointer",
+    color: "#e5e7eb",
+    fontSize: "14px",
+  },
+
+  fileInput: {
+    width: "100%",
+    color: "#e5e7eb",
+    fontSize: "14px",
+    marginBottom: "6px",
+  },
+
+  uploadInfo: {
+    fontSize: "12px",
+    color: "#9ca3af",
+  },
+
+  qrBox: {
+    flex: "0 0 220px",
+    maxWidth: "260px",
+    padding: "14px",
+    borderRadius: "16px",
+    border: "1px solid rgba(255,255,255,0.16)",
+    background: "rgba(15,23,42,0.9)",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "10px",
+  },
+
+  qrTitle: {
+    fontSize: "14px",
+    fontWeight: 600,
+    color: "#e5e7eb",
+  },
+
+  qrImageWrapper: {
+    width: "180px",
+    height: "180px",
+    borderRadius: "12px",
+    overflow: "hidden",
+    background: "#fff",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  qrImage: {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+  },
+
+  qrNote: {
+    fontSize: "11px",
+    color: "#9ca3af",
+    textAlign: "center",
+    marginTop: "4px",
+  },
 };
+
+  // QR image from assets
+  const qrPlaceholder = kshitij_gpay;
 
 
   if (success) {
@@ -345,6 +452,62 @@ export default function RegisterForm() {
     onChange={handleChange}
   />
 </div>
+
+        {/* Payment details: transaction + screenshot + QR */}
+        <div style={styles.sectionTitle}>Payment & Verification</div>
+        <div style={styles.paymentRow}>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <input
+              style={styles.input}
+              name="transactionId"
+              placeholder="Transaction / UPI Reference ID *"
+              required
+              onChange={handleChange}
+            />
+
+            <div style={styles.uploadBox}>
+              <label htmlFor="screenshot" style={styles.uploadLabel}>
+                <span style={{ fontWeight: 600 }}>
+                  Upload payment screenshot (JPG / PNG)
+                </span>
+                <span style={{ fontSize: 12, color: "#9ca3af" }}>
+                  Image will be uploaded to Google Drive and its link stored in
+                  the sheet.
+                </span>
+              </label>
+              <input
+                id="screenshot"
+                type="file"
+                accept="image/*"
+                style={styles.fileInput}
+                onChange={handleFileChange}
+              />
+              <div style={styles.uploadInfo}>
+                {screenshot ? (
+                  <span>Selected file: {screenshot.name}</span>
+                ) : (
+                  <span>No file selected yet</span>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div style={styles.qrBox}>
+            <div style={styles.qrTitle}>Scan &amp; Pay (Sample)</div>
+            <div style={styles.qrImageWrapper}>
+              <img
+                src={qrPlaceholder}
+                alt="Payment QR placeholder"
+                style={styles.qrImage}
+              />
+            </div>
+            <p style={styles.qrNote}>
+              Use this QR placeholder for now. Later, replace it with your own
+              QR image from the assets folder. After paying, upload the
+              screenshot on the left.
+            </p>
+          </div>
+        </div>
 
         <button style={styles.button} disabled={loading}>
           {loading ? "Submitting..." : "Submit Registration"}
