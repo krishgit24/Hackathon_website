@@ -49,31 +49,41 @@ export function Registration() {
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5 rounded-2xl md:rounded-3xl" />
 
             <div className="relative text-center">
+{/* ================= BIG Timer INSIDE Form ================= */}
+{timeLeft && (
+  <div className="mb-12 flex justify-center">
+    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-10 py-8 shadow-xl">
+      
+      <p className="text-gray-300 text-lg mb-6 tracking-widest text-center">
+        EVENT STARTS IN
+      </p>
 
-              {/* ================= Timer INSIDE Form ================= */}
-              {timeLeft && (
-                <div className="mb-8 flex justify-center">
-                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-6 py-4">
-                    <p className="text-gray-400 text-sm mb-3 tracking-wide">
-                      Event Starts In
-                    </p>
+      <div className="flex gap-5 sm:gap-10 justify-center">
+        {Object.entries(timeLeft).map(([label, value]) => (
+          <div key={label} className="text-center">
+            
+            <div className="
+              text-5xl sm:text-6xl md:text-9xl
+              font-extrabold
+              bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400
+              bg-clip-text text-transparent
+              leading-none
+            ">
+              {String(value).padStart(2, '0')}
+            </div>
 
-                    <div className="flex gap-4 justify-center">
-                      {Object.entries(timeLeft).map(([label, value]) => (
-                        <div key={label}>
-                          <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                            {String(value).padStart(2, '0')}
-                          </div>
-                          <div className="text-gray-400 text-xs mt-1 uppercase tracking-wider">
-                            {label}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-              {/* ===================================================== */}
+            <div className="text-gray-400 text-sm mt-3 uppercase tracking-widest">
+              {label}
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+)}
+{/* ===================================================== */}
 
               <h3 className="text-2xl sm:text-3xl text-white mb-6 md:mb-8 font-semibold">
                 Registration Form

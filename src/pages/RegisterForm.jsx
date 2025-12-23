@@ -57,78 +57,110 @@ export default function RegisterForm() {
   };
 
   const styles = {
-    page: {
-      minHeight: "100vh",
-      backgroundColor: "#020203ff",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      padding: "40px 16px",
-    },
-    card: {
-      width: "100%",
-      maxWidth: "900px",
-      background: "rgba(199, 199, 199, 0.05)",
-      border: "1px solid rgba(255,255,255,0.12)",
-      borderRadius: "22px",
-      padding: "32px",
-      boxShadow: "0 0 50px rgba(0,255,255,0.15)",
-    },
-    title: {
-      color: "#fff",
-      fontSize: "45px",
-      fontWeight: "900",
-      textAlign: "center",
-      marginBottom: "10px",
-    },
-    subtitle: {
-      color: "#9ca3af",
-      textAlign: "center",
-      marginBottom: "30px",
-    },
-    sectionTitle: {
-      color: "#22d3ee",
-      fontSize: "18px",
-      margin: "24px 0 12px",
-      fontWeight: "600",
-    },
-    grid2: {
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      gap: "14px",
-    },
-    input: {
-      width: "100%",
-      padding: "12px 14px",
-      borderRadius: "10px",
-      border: "1px solid rgba(255,255,255,0.15)",
-      backgroundColor: "rgba(255,255,255,0.08)",
-      color: "#fff",
-      outline: "none",
-    },
-    button: {
-      width: "100%",
-      padding: "15px",
-      fontSize: "16px",
-      fontWeight: "600",
-      borderRadius: "14px",
-      border: "none",
-      cursor: "pointer",
-      background:
-        "linear-gradient(90deg, #22d3ee, #a855f7, #ec4899)",
-      color: "#fff",
-      marginTop: "30px",
-    },
-    success: {
-      textAlign: "center",
-      color: "#fff",
-    },
-    check: {
-      fontSize: "70px",
-      color: "#22d3ee",
-      marginBottom: "16px",
-    },
-  };
+  page: {
+  minHeight: "100vh",
+  background:
+    "linear-gradient(135deg, #020024, #0f3460, #2c1056ff, #6c0e5eff)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "60px 16px",
+},
+
+  card: {
+    width: "100%",
+    maxWidth: "900px",
+    // background:
+    //   "linear-gradient(145deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.02))",
+    backdropFilter: "blur(14px)",
+    WebkitBackdropFilter: "blur(6px)",
+    border: "6px solid rgba(255, 255, 255, 0.18)",
+    borderRadius: "26px",
+    padding: "40px",
+    boxShadow:
+      "0 0 60px rgba(34,211,238,0.25), inset 0 0 20px rgba(255,255,255,0.04)",
+  },
+
+  title: {
+    fontSize: "48px",
+    fontWeight: "900",
+    textAlign: "center",
+    marginBottom: "12px",
+    background:
+      "linear-gradient(90deg, #22d3ee, #a855f7, #ec4899)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    letterSpacing: "0.5px",
+  },
+
+  subtitle: {
+    color: "#9ca3af",
+    textAlign: "center",
+    marginBottom: "36px",
+    fontSize: "16px",
+  },
+
+  sectionTitle: {
+    fontSize: "18px",
+    margin: "28px 0 14px",
+    fontWeight: "600",
+    background:
+      "linear-gradient(90deg, #22d3ee, #a855f7)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  },
+
+  grid2: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: "16px",
+  },
+
+  input: {
+    width: "100%",
+    padding: "14px 16px",
+    borderRadius: "12px",
+    border: "1px solid rgba(255,255,255,0.18)",
+    background:
+      "linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04))",
+    color: "#fff",
+    outline: "none",
+    fontSize: "15px",
+    boxShadow: "inset 0 0 8px rgba(255,255,255,0.05)",
+  },
+
+  button: {
+    width: "100%",
+    padding: "16px",
+    fontSize: "17px",
+    fontWeight: "700",
+    borderRadius: "16px",
+    border: "none",
+    cursor: "pointer",
+    background:
+      "linear-gradient(90deg, #22d3ee, #a855f7, #ec4899)",
+    color: "#fff",
+    marginTop: "36px",
+    boxShadow:
+      "0 0 30px rgba(168,85,247,0.5)",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+  },
+
+  success: {
+    textAlign: "center",
+    color: "#fff",
+  },
+
+  check: {
+    fontSize: "72px",
+    marginBottom: "18px",
+    background:
+      "linear-gradient(90deg, #22d3ee, #a855f7)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  },
+};
+
 
   if (success) {
     return (
