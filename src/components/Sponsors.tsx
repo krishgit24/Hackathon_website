@@ -1,6 +1,6 @@
 import React from 'react';
 import { Building2, Lightbulb } from 'lucide-react';
-import fof from '../Assets/fof.webp';
+import fof from '../Assets/fofdark.png';
 import curomate from '../Assets/curomate.png';
 
 export function Sponsors() {
@@ -38,12 +38,12 @@ export function Sponsors() {
 
                 <div className="relative text-center">
                   <div
-                    className={`inline-flex w-24 h-24 mb-6 bg-gradient-to-br ${sponsor.gradient} rounded-2xl items-center justify-center group-hover:scale-110 transition-transform`}
+                    className={`inline-flex w-34 h-34 mb-6 bg-gradient-to-br ${sponsor.gradient} rounded-2xl items-center justify-center group-hover:scale-110 transition-transform`}
                   >
                     <img
                       src={sponsor.icon}
                       alt={sponsor.name}
-                      className="w-14 h-14 object-contain"
+                      className="w-30 h-30 object-contain"
                     />
                   </div>
 

@@ -51,24 +51,27 @@ export default function RegisterForm() {
     });
 
   const calculateFee = () => {
-  let fee = 100; // base fee for 2 members
+  let fee = 0;
 
-  // Member 3
-  if (form.member3Name.trim() !== "") {
-    if (!form.member3IEEEMember) {
-      fee += 50;
-    }
+  // Leader
+  if (!form.leaderIEEEMember) fee += 50;
+
+  // Member 2
+  if (!form.member2IEEEMember) fee += 50;
+
+  // Member 3 (only if exists)
+  if (form.member3Name.trim() !== "" && !form.member3IEEEMember) {
+    fee += 50;
   }
 
-  // Member 4
-  if (form.member4Name.trim() !== "") {
-    if (!form.member4IEEEMember) {
-      fee += 50;
-    }
+  // Member 4 (only if exists)
+  if (form.member4Name.trim() !== "" && !form.member4IEEEMember) {
+    fee += 50;
   }
 
   return fee;
 };
+
 
 
   const handleChange = (e) => {
@@ -90,6 +93,14 @@ export default function RegisterForm() {
 
   try {
     let screenshotUrl = "";
+    const totalFee = calculateFee();
+
+// If fee is zero, ignore transaction & screenshot
+if (totalFee === 0) {
+  setScreenshot(null);
+  form.transactionId = "IEEE_FREE";
+}
+
 
     // Step 1: upload screenshot if exists
     if (screenshot) {
@@ -317,6 +328,9 @@ export default function RegisterForm() {
     </div>
   );
 
+  const totalFee = calculateFee();
+
+
   if (success) {
     return (
       <div style={styles.page}>
@@ -403,7 +417,7 @@ export default function RegisterForm() {
         {/* Fee */}
         <div style={styles.feeBox} >
           <div style={styles.feeText} >
-            Total Registration Fee : <span style={styles.feeAmount} className="ml-3">₹{calculateFee()}</span>
+            Total Registration Fee : <span style={styles.feeAmount} className="ml-3">₹{totalFee}</span>
           </div>
           <div style={{ fontSize: "12px", color: "#9ca3af", textAlign: "center", marginTop: "8px" }}>
             ₹50 per non-IEEE member · IEEE VESIT members register free
@@ -411,30 +425,61 @@ export default function RegisterForm() {
         </div>
 
         {/* Payment */}
-        <div style={styles.sectionTitle}>Payment & Verification</div>
-        <div style={styles.paymentRow}>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <input style={styles.input} name="transactionId" placeholder="Transaction / UPI Reference ID *" required onChange={handleChange} />
-            <div style={styles.uploadBox}>
-              <label htmlFor="screenshot" style={styles.uploadLabel}>
-                <span style={{ fontWeight: 600 }}>Upload payment screenshot (JPG / PNG)</span>
-                {/* <span style={{ fontSize: 12, color: "#9ca3af" }}>Image will be uploaded to Google Drive and its link stored in the sheet.</span> */}
-              </label>
-              <input id="screenshot" type="file" accept="image/*" style={styles.fileInput} onChange={handleFileChange} />
-              <div style={styles.uploadInfo}>
-                {screenshot ? <span>Selected file: {screenshot.name}</span> : <span>No file selected yet</span>}
-              </div>
-            </div>
-          </div>
+        {totalFee > 0 && (
+  <>
+    <div style={styles.sectionTitle}>Payment & Verification</div>
 
-          <div style={styles.qrBox}>
-            <div style={styles.qrTitle}>Scan &amp; Pay</div>
-            <div style={styles.qrImageWrapper}>
-              <img src={qrPlaceholder} alt="Payment QR placeholder" style={styles.qrImage} />
-            </div>
-            <p style={styles.qrNote}>Use this QR for payments. After paying, upload the screenshot.</p>
+    <div style={styles.paymentRow}>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <input
+          style={styles.input}
+          name="transactionId"
+          placeholder="Transaction / UPI Reference ID *"
+          required
+          onChange={handleChange}
+        />
+
+        <div style={styles.uploadBox}>
+          <label htmlFor="screenshot" style={styles.uploadLabel}>
+            <span style={{ fontWeight: 600 }}>
+              Upload payment screenshot (JPG / PNG)
+            </span>
+          </label>
+
+          <input
+            id="screenshot"
+            type="file"
+            accept="image/*"
+            style={styles.fileInput}
+            onChange={handleFileChange}
+          />
+
+          <div style={styles.uploadInfo}>
+            {screenshot
+              ? `Selected file: ${screenshot.name}`
+              : "No file selected yet"}
           </div>
         </div>
+      </div>
+
+      <div style={styles.qrBox}>
+        <div style={styles.qrTitle}>Scan & Pay</div>
+        <div style={styles.qrImageWrapper}>
+          <img
+            src={qrPlaceholder}
+            alt="Payment QR"
+            style={styles.qrImage}
+          />
+        </div>
+        <p style={styles.qrNote}>
+          Use this QR for payments. After paying, upload the screenshot.
+        </p>
+      </div>
+    </div>
+  </>
+)}
+
+
 
         <button style={styles.button} disabled={loading}>
           {loading ? "Submitting..." : "Submit Registration"}

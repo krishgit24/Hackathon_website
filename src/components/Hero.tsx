@@ -86,10 +86,10 @@ export function Hero() {
             ))}
 
             <div className="mobile-socials">
-              <a href="#" className="mobile-social-icon">
+              <a href="https://www.linkedin.com/company/ieeevesit/" className="mobile-social-icon">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="mobile-social-icon">
+              <a href="https://www.instagram.com/ieee_vesit/" className="mobile-social-icon">
                 <Instagram size={20} />
               </a>
             </div>
